@@ -26,7 +26,7 @@ pipeline{
         //stage3 : Publish the artifacts to Nexus
         stage ('Publish to Nexus'){
             steps {
-                nexusArtifactUploader artifacts: [[artifactId: 'SankarDevOpsLab', classifier: '', file: 'target/SankarDevOpsLab-0.0.3-SNAPSHOT.war', type: 'war']], credentialsId: '03e30f0d-32ee-45ab-af3a-a04cd36ea0bc', groupId: 'com.sankardevopslab', nexusUrl: '172.20.10.54:8081', nexusVersion: 'nexus2', protocol: 'http', repository: 'SankarDevOps-SNAPSHOT', version: '0.0.3-SNAPSHOT'
+                nexusArtifactUploader artifacts: [[artifactId: 'SankarDevOpsLab', classifier: '', file: 'target/SankarDevOpsLab-0.0.4-SNAPSHOT.war', type: 'war']], credentialsId: '03e30f0d-32ee-45ab-af3a-a04cd36ea0bc', groupId: 'com.sankardevopslab', nexusUrl: '172.20.10.54:8081', nexusVersion: 'nexus2', protocol: 'http', repository: 'SankarDevOps-SNAPSHOT', version: '0.0.4-SNAPSHOT'
             }
         }
 
