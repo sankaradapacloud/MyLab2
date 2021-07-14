@@ -5,10 +5,10 @@ pipeline {
         maven 'maven'
     }
     environment {
-       // ArtifactId = readMavenPom().getArtifactId()
-        Version = readMavenPom().getVersion()
-        Name = readMavenPom().getName()
-        GroupId = readMavenPom().getGroupId()
+       ArtifactId = readMavenPom().getArtifactId()
+       Version = readMavenPom().getVersion()
+       Name = readMavenPom().getName()
+       GroupId = readMavenPom().getGroupId()
     }
 
     stages {
@@ -38,10 +38,10 @@ pipeline {
         // Stage4 : Print some Information
             stage ('Print Environment variables') {
                 steps {
-                    echo "Artifact ID is '{ArtifactId}'"
-                    echo "Version is '{Version}'"
-                    echo "Group ID is '{GroupId}'"
-                    echo "Name ID is '{Name}'"
+                    echo "Artifact ID is '${ArtifactId}'"
+                    echo "Version is '${Version}'"
+                    echo "Group ID is '${GroupId}'"
+                    echo "Name ID is '${Name}'"
                 }
             }
 
