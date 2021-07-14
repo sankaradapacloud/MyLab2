@@ -33,17 +33,17 @@ pipeline {
         stage ('Publish to Nexus') {
             steps {
                 nexusArtifactUploader artifacts: 
-                [[artifactId: '${ArtifactId}', 
+                [[artifactId: "${ArtifactId}", 
                 classifier: '', 
-                file: 'target/${ArtifactId}-{Version}}.war', 
+                file: "target/${ArtifactId}-${Version}}.war", 
                 type: 'war']], 
                 credentialsId: 'ed2818dc-d8cc-4190-9557-ebe4134ad06d', 
-                groupId: '${GroupId}', 
+                groupId: "${GroupId}", 
                 nexusUrl: '172.20.10.54:8081', 
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: 'SankarDevOpsLab-SNAPSHOT', 
-                version: '{Version}}'
+                version: "${Version}}"
             }
         }
 
