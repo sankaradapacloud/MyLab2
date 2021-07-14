@@ -4,11 +4,7 @@ pipeline {
     tools {
         maven 'maven'
     }
-//      environment {
-//     //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
-//     ArtifactId = readMavenPom().getArtifactId()
-//     Version = readMavenPom().getVersion()
-//   }
+
     environment {
        ArtifactId = readMavenPom().getArtifactId()
        Version = readMavenPom().getVersion()
@@ -36,7 +32,18 @@ pipeline {
         //stage3 : Publish the artifacts to Nexus
         stage ('Publish to Nexus') {
             steps {
-                nexusArtifactUploader artifacts: [[artifactId: 'SankarDevOpsLab', classifier: '', file: 'target/SankarDevOpsLab-0.0.1-SNAPSHOT.war', type: 'war']], credentialsId: 'ed2818dc-d8cc-4190-9557-ebe4134ad06d', groupId: 'com.sankardevopslab', nexusUrl: '172.20.10.54:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'SankarDevOpsLab-SNAPSHOT', version: '0.0.1-SNAPSHOT'
+                nexusArtifactUploader artifacts: 
+                [[artifactId: '${ArtifactId}', 
+                classifier: '', 
+                file: 'target/${ArtifactId}-{Version}}.war', 
+                type: 'war']], 
+                credentialsId: 'ed2818dc-d8cc-4190-9557-ebe4134ad06d', 
+                groupId: '${GroupId}', 
+                nexusUrl: '172.20.10.54:8081', 
+                nexusVersion: 'nexus3', 
+                protocol: 'http', 
+                repository: 'SankarDevOpsLab-SNAPSHOT', 
+                version: '{Version}}'
             }
         }
 
