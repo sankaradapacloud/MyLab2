@@ -4,18 +4,18 @@ pipeline {
     tools {
         maven 'maven'
     }
-     environment {
-    //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
-    ArtifactId = readMavenPom().getArtifactId()
-    Version = readMavenPom().getVersion()
-  }
-    /*environment {
-    //    ArtifactId = readMavenPom().getArtifactId()
-    //    Version = readMavenPom().getVersion()
-    //    Name = readMavenPom().getName()
-    //    GroupId = readMavenPom().getGroupId()
+//      environment {
+//     //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
+//     ArtifactId = readMavenPom().getArtifactId()
+//     Version = readMavenPom().getVersion()
+//   }
+    environment {
+       ArtifactId = readMavenPom().getArtifactId()
+       Version = readMavenPom().getVersion()
+       Name = readMavenPom().getName()
+       GroupId = readMavenPom().getGroupId()
     }
-*/
+
     stages {
         // Specify various stage with in stages
 
@@ -45,8 +45,8 @@ pipeline {
                 steps {
                     echo "Artifact ID is ${ArtifactId}"
                     echo "Version is ${Version}"
-                   // echo "Group ID is ${GroupId}"
-                  //  echo "Name ID is ${Name}"
+                    echo "Group ID is ${GroupId}"
+                    echo "Name ID is ${Name}"
                 }
             }
 
