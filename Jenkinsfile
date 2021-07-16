@@ -61,7 +61,7 @@ pipeline {
             }
 
         // Stage5 : Deploying
-     /*   stage ('Deploy') {
+        stage ('Deploy') {
             steps {
                 echo 'Deployed Successfully......'
                 sshPublisher(publishers: 
@@ -79,6 +79,6 @@ pipeline {
                 useWorkspaceInPromotion: false, 
                 verbose: false)])
             }
-        }*/
+        }
     }
 }
