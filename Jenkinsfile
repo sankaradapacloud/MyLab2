@@ -67,7 +67,7 @@ pipeline {
                 sshPublisher(publishers: 
                 [sshPublisherDesc(configName: 'Ansible_Controller', 
                 transfers: [sshTransfer(cleanRemote: false, excludes: '', 
-                execCommand: 'ansible-playbook /opt/playbooks/downloadanddeploy.yaml -i /opt/playbooks/hosts', execTimeout: 120000, flatten: false, 
+                execCommand: 'ansible-playbook /opt/playbooks/downloadanddeploy_as_root_user.yaml -i /opt/playbooks/hosts', execTimeout: 120000, flatten: false, 
                 makeEmptyDirs: false, 
                 noDefaultExcludes: false, 
                 patternSeparator: '[, ]+', 
@@ -81,7 +81,7 @@ pipeline {
             }
         }
      
-    /*   // Stage6 : Deploying the build artifact to Docker
+       // Stage6 : Deploying the build artifact to Docker
         stage ('Deploy on Docker') {
             steps {
                 echo 'Deploying......'
@@ -94,6 +94,6 @@ pipeline {
                 useWorkspaceInPromotion: false, 
                 verbose: false)])
             }
-        }*/
+        }
     }
 }
