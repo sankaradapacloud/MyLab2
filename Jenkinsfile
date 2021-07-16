@@ -81,7 +81,7 @@ pipeline {
             }
         }
      
-       // Stage6 : Deploying the build artifact to Docker
+    /*   // Stage6 : Deploying the build artifact to Docker
         stage ('Deploy on Docker') {
             steps {
                 echo 'Deploying......'
@@ -94,6 +94,6 @@ pipeline {
                 useWorkspaceInPromotion: false, 
                 verbose: false)])
             }
-        }
+        }*/
     }
 }
