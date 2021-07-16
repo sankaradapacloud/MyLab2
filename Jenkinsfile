@@ -39,9 +39,9 @@ pipeline {
                 classifier: '', 
                 file: "target/${ArtifactId}-${Version}.war", 
                 type: 'war']], 
-                credentialsId: 'ec6d8c12-8a6b-42a4-a7ed-6494e3325e7d', 
+                credentialsId: '79309781-b415-4144-b8b9-40eae76cdbb7', 
                 groupId: "${GroupId}", 
-                nexusUrl: '172.20.10.254:8081', 
+                nexusUrl: '172.20.10.212:8081', 
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: "${NexusRepo}", 
@@ -61,7 +61,7 @@ pipeline {
             }
 
         // Stage5 : Deploying
-        stage ('Deploy') {
+     /*   stage ('Deploy') {
             steps {
                 echo 'Deployed Successfully......'
                 sshPublisher(publishers: 
@@ -79,6 +79,6 @@ pipeline {
                 useWorkspaceInPromotion: false, 
                 verbose: false)])
             }
-        }
+        }*/
     }
 }
