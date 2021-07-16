@@ -80,7 +80,7 @@ pipeline {
                 verbose: false)])
             }
         }
-     
+     /*
        // Stage6 : Deploying the build artifact to Docker
         stage ('Deploy on Docker') {
             steps {
@@ -94,6 +94,6 @@ pipeline {
                 useWorkspaceInPromotion: false, 
                 verbose: false)])
             }
-        }
+        }*/
     }
 }
